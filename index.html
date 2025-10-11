@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>G12 Countdown</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div
+      class="wrap"
+      role="application"
+      aria-label="Countdown to March 17, 2026"
+    >
+      <!-- sakura petals (created by JS, placed here) -->
+      <canvas id="confetti"></canvas>
+
+      <div class="left">
+        <div>
+          <h1>G12 Exam Countdown</h1>
+          <p class="lead">
+            Study hard, believe in yourself, and keep going even when it's tough.
+            <br>
+            Stay strong. Dream big. G12 is your story, so make it legendary. 🔥💪
+          </p>
+        </div>
+
+        <div class="count-grid" aria-live="polite" id="countGrid">
+          <div class="card" aria-hidden="false">
+            <div class="num" id="days">0</div>
+            <div>
+              <div class="label">Days</div>
+            </div>
+          </div>
+
+          <div class="card" aria-hidden="false">
+            <div class="num" id="hours">0</div>
+            <div>
+              <div class="label">Hours</div>
+            </div>
+          </div>
+
+          <div class="card" aria-hidden="false">
+            <div class="num" id="minutes">0</div>
+            <div>
+              <div class="label">Minutes</div>
+            </div>
+          </div>
+
+          <div class="card" aria-hidden="false">
+            <div class="num" id="seconds">0</div>
+            <div>
+              <div class="label">Seconds</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          Final: <strong>March 17, 2026.</strong> <span class="note">(Last year G12 Exam date)</span> <br>
+          <button class="details" onclick={testing()}>More Details</button>
+        </div>
+        
+      </div>
+
+      <div class="right">
+        <div class="art">
+          <div class="anime-card" aria-hidden="true">
+            <img src="/g12.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- celebration overlay -->
+      <div
+        class="celebrate"
+        id="celebrate"
+        aria-hidden="true"
+        style="display: none"
+      >
+        <h2>G12 Exam Time!</h2>
+      </div>
+
+      <div class="blurCover"></div>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

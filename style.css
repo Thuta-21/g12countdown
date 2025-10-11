@@ -1,0 +1,332 @@
+:root {
+  --bg1: #e7f5ff;
+  --bg2: #fef7f9;
+  --accent: #ff0011;
+  --accent-2: #6fb3ff;
+  --card: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --shadow: 0 6px 30px rgba(111, 59, 100, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Noto Sans JP", "Montserrat", system-ui, sans-serif;
+  background: radial-gradient(
+      1200px 600px at 10% 10%,
+      #fff7ff 0%,
+      transparent 20%
+    ),
+    radial-gradient(900px 500px at 90% 90%, #f0fbff 0%, transparent 18%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  color: #2b1a2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Container */
+.wrap {
+  width: 100%;
+  max-width: 1100px;
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.5)
+  );
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Left */
+.left {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: clamp(28px, 4vw, 44px);
+  color: #3b113b;
+  text-shadow: 0 6px 18px rgba(111, 59, 100, 0.15);
+}
+
+p.lead {
+  color: #5a3b5a;
+  opacity: 0.9;
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.6;
+  text-align: left;
+  margin: 15px 0 10px 0;
+}
+
+/* Countdown Grid */
+.count-grid {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.7)
+  );
+  border-radius: 16px;
+  padding: 16px 18px;
+  min-width: 120px;
+  box-shadow: 0 6px 18px rgba(111, 59, 100, 0.06);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.num {
+  font-size: clamp(32px, 6vw, 40px);
+  font-weight: 900;
+  color: #291026;
+}
+
+.label {
+  color: #5d3a54;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Button */
+.details {
+  margin-top: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 1px solid #3b113b;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.details:hover {
+  background-color: #3b113b;
+  color: white;
+}
+
+/* Right Section */
+.right {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+}
+
+.art {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.anime-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(111, 59, 100, 0.08);
+}
+
+.anime-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Rings */
+.rings {
+  display: none;
+}
+
+/* Footer */
+.footer {
+  margin-top: 8px;
+  font-size: 13px;
+  color: black;
+  opacity: 1;
+  text-align: left;
+}
+
+/* Celebrate */
+.celebrate {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.celebrate h2 {
+  font-size: clamp(40px, 6vw, 56px);
+  color: var(--accent);
+  text-shadow: 0 8px 20px rgba(161, 161, 161, 0.6);
+  animation: pop 0.8s ease-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Sakura Petals */
+.petal {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: radial-gradient(
+    circle at 35% 30%,
+    #fff,
+    #ffd9ef 20%,
+    #bfe6f9 60%
+  );
+  border-radius: 50% 20% 50% 50%;
+  opacity: 0.9;
+  animation: drift 9s linear infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(-20vh) translateX(0) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) translateX(40vw) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Confetti */
+#confetti {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media screen and (max-width: 1091px) {
+  .wrap {
+    grid-template-columns: 1fr auto;
+    text-align: center;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: clamp(24px, 6vw, 36px);
+    text-align: left;
+  }
+
+  .count-grid {
+    justify-content: center;
+  }
+
+  .card {
+    flex: 1 1 40%;
+    min-width: 50px;
+    padding: 12px;
+  }
+
+  .anime-card {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 830px) {
+  h1 {
+    font-size: 1.8rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 780px) {
+  body {
+    padding: 12px;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .wrap {
+    border-radius: 20px;
+    padding: 16px;
+  }
+
+  p.lead {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .anime-card {
+    max-width: 240px;
+  }
+
+  .details {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .num {
+    font-size: 28px;
+  }
+
+  .label {
+    font-size: 12px;
+  }
+
+  .anime-card {
+    max-width: 200px;
+  }
+
+  .wrap {
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .note {
+    display: block;
+  }
+}
