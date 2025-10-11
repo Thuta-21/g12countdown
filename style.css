@@ -159,7 +159,8 @@ p.lead {
 
 .anime-card img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  border-radius: inherit;
   object-fit: cover;
 }
 
