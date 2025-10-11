@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>G12 Countdown</title>
-    <link rel="icon" type="image/x-icon" href="/g12.png">
+    <link rel="icon" type="image/x-icon" href="/g12.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div
@@ -24,9 +24,11 @@
         <div>
           <h1>G12 Exam Countdown</h1>
           <p class="lead">
-            Study hard, believe in yourself, and keep going even when it's tough.
-            <br>
-            Stay strong. Dream big. G12 is your story, so make it legendary. 🔥💪
+            Study hard, believe in yourself, and keep going even when it's
+            tough.
+            <br />
+            Stay strong. Dream big. G12 is your story, so make it legendary.
+            🔥💪
           </p>
         </div>
 
@@ -61,16 +63,16 @@
         </div>
 
         <div class="footer">
-          Final: <strong>March 17, 2026.</strong> <span class="note">(Last year G12 Exam date)</span> <br>
-          <button class="details" onclick={testing()}>More Details</button>
+          Final: <strong>March 17, 2026.</strong>
+          <span class="note">(Last year G12 Exam date)</span> <br />
+          <button class="details" onclick="{showPopup()}">More Details</button>
         </div>
-        
       </div>
 
       <div class="right">
         <div class="art">
           <div class="anime-card" aria-hidden="true">
-            <img src="/g12.png" alt="">
+            <img src="/g12.png" alt="" />
           </div>
         </div>
       </div>
@@ -87,6 +89,59 @@
 
       <div class="blurCover"></div>
     </div>
+
+    <div class="calculator-popup hide">
+      <h1>Details Calculator</h1>
+
+      <div class="input-group">
+        <label for="sleepTime">Daily Sleep Hours</label>
+        <input
+          type="number"
+          id="sleepTime"
+          class="detail-input"
+          placeholder="e.g., 8"
+        />
+      </div>
+
+      <div class="input-group">
+        <label for="otherTime">Other Daily Non-Study Hours</label>
+        <input
+          type="number"
+          id="otherTime"
+          class="detail-input"
+          placeholder="e.g., 4 (meals, rests)"
+        />
+      </div>
+
+      <div class="button-container">
+        <button
+          type="button"
+          onclick={showPopup()}
+          class="calculate-btn btn-back"
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          onclick={calculateStudyTimePerSubject()}
+          class="calculate-btn"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <div class="info-section details_note">
+        <p>
+          Details Calculator ဆိုတာ ကျောင်းသူ၊ ကျောင်းသားတွေရဲ့ အိပ်ချိန် နဲ့ အခြားကုန်တဲ့အချိန်တွေကိုထည့်ပြီး တကယ့်စာလုပ်ချိန်ဘယ်လောက်ကျန်လဲဆိုတာကို တွက်ချက်ပေးတဲ့အရာပဲဖြစ်ပါတယ်။
+        </p>
+      </div>
+
+      <div id="result-container" class="info-section result-section hide">
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <div class="blurOverlay hide"></div>
     <script src="/script.js"></script>
   </body>
 </html>

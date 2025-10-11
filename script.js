@@ -9,7 +9,12 @@ const secondsEl = document.getElementById("seconds");
 const celebrateEl = document.getElementById("celebrate");
 const confettiCanvas = document.getElementById("confetti");
 const wrap = document.querySelector(".wrap");
-
+const popup = document.getElementsByClassName("calculator-popup")[0];
+const sleepTime = document.getElementById("sleepTime");
+const otherTime = document.getElementById("otherTime");
+const details_note = document.getElementsByClassName('details_note')[0];
+const result_container = document.getElementById('result-container');
+const blurOverlay = document.getElementsByClassName('blurOverlay')[0];
 confettiCanvas.width = wrap.clientWidth;
 confettiCanvas.height = wrap.clientHeight;
 
@@ -104,8 +109,69 @@ function stepConfetti() {
 }
 
 //testing
-function testing() {
-  alert('This function is still in development state.')
+function showPopup() {
+  blurOverlay.classList.toggle("hide");
+  popup.classList.toggle("hide");
+  // alert('This function is still in development state.')
+}
+
+function calculateStudyTimePerSubject() {
+  details_note.classList.add('hide');
+  result_container.classList.remove('hide');
+  // --- 1. Get User Inputs (assuming you have these input fields in your HTML) ---
+  const sleepHours = document.getElementById('sleepTime').value;
+  const otherHours = document.getElementById('otherTime').value;
+  const numSubjects = 6;
+  const resultElement = document.getElementById('result');
+
+  // --- 2. Validate Inputs ---
+  if (sleepHours === '' || otherHours === '') {
+    resultElement.textContent = 'Please fill in all fields.';
+    return;
+  }
+
+  // --- 3. Calculate Total Time Remaining ---
+  const now = new Date();
+  const totalMillisecondsLeft = target.getTime() - now.getTime();
+
+  if (totalMillisecondsLeft < 0) {
+    resultElement.textContent = 'The target date is in the past!';
+    return;
+  }
+  
+  // Convert total milliseconds to total days (can be a decimal)
+  const totalDaysLeft = totalMillisecondsLeft / (1000 * 60 * 60 * 24);
+
+  // --- 4. Calculate Available Study Time ---
+  const dailyStudyHours = 24 - sleepHours - otherHours;
+
+  if (dailyStudyHours <= 0) {
+    resultElement.textContent = 'You have no available study time per day!';
+    return;
+  }
+
+  // Total available study hours until the target date
+  const totalStudyHours = totalDaysLeft * dailyStudyHours;
+  
+  // --- 5. Distribute Time Per Subject ---
+  const hoursPerSubject = totalStudyHours / 6;
+
+  // --- 6. Format and Display the Result ---
+  const formattedTime = formatDuration(hoursPerSubject);
+  const [days, hours, minutes] = formattedTime;
+  resultElement.innerHTML = `သင့်မှာ တစ်ဘာသာအတွက်စာလုပ်ချိန် - <br> <strong>${days} ရက် ${hours} နာရီ ${minutes} မိနစ်</strong> သာကျန်ရှိပါတော့သည်။`;
+}
+
+// A helper function to convert a total number of hours into a
+function formatDuration(totalHours) {
+  if (totalHours < 0) return "0 hours";
+
+  const days = Math.floor(totalHours / 24);
+  const remainingHoursDecimal = totalHours % 24;
+  const hours = Math.floor(remainingHoursDecimal);
+  const minutes = Math.floor((remainingHoursDecimal - hours) * 60);
+
+  return [days, hours, minutes];
 }
 
 // sakura petals creation
