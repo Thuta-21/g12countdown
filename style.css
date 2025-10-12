@@ -355,7 +355,7 @@ p.lead {
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7px);
   z-index: 2;
 }
 
