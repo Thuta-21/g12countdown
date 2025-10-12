@@ -108,11 +108,10 @@ function stepConfetti() {
   }
 }
 
-//testing
+//showPopup
 function showPopup() {
   blurOverlay.classList.toggle("hide");
   popup.classList.toggle("hide");
-  // alert('This function is still in development state.')
 }
 
 function calculateStudyTimePerSubject() {

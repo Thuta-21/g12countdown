@@ -9,6 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
@@ -65,8 +66,9 @@
         <div class="footer">
           Final: <strong>March 17, 2026.</strong>
           <span class="note">(Last year G12 Exam date)</span> <br />
-          <button class="details" onclick="{showPopup()}">More Details</button>
+          <button class="details" onclick="{showPopup()}">STPS Calculator</button>
         </div>
+        <div class="me me-l">Made with love, by <a href="https://t.me/codewithhein">Hein</a></div>
       </div>
 
       <div class="right">
@@ -75,6 +77,7 @@
             <img src="/g12.png" alt="" />
           </div>
         </div>
+        <div class="me me-r">Made with love, by <a href="https://t.me/codewithhein">Hein</a></div>
       </div>
 
       <!-- celebration overlay -->
@@ -91,7 +94,13 @@
     </div>
 
     <div class="calculator-popup hide">
-      <h1>Details Calculator</h1>
+       <span
+          onclick={showPopup()}
+          class="btn-back"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </span>
+      <h1>STPS Calculator</h1>
 
       <div class="input-group">
         <label for="sleepTime">Daily Sleep Hours</label>
@@ -116,13 +125,6 @@
       <div class="button-container">
         <button
           type="button"
-          onclick={showPopup()}
-          class="calculate-btn btn-back"
-        >
-          Back
-        </button>
-        <button
-          type="button"
           onclick={calculateStudyTimePerSubject()}
           class="calculate-btn"
         >
@@ -132,7 +134,7 @@
 
       <div class="info-section details_note">
         <p>
-          Details Calculator ဆိုတာ ကျောင်းသူ၊ ကျောင်းသားတွေရဲ့ အိပ်ချိန် နဲ့ အခြားကုန်တဲ့အချိန်တွေကိုထည့်ပြီး တကယ့်စာလုပ်ချိန်ဘယ်လောက်ကျန်လဲဆိုတာကို တွက်ချက်ပေးတဲ့အရာပဲဖြစ်ပါတယ်။
+          STPS Calculator က ကျောင်းသား၊ ကျောင်းသူတွေရဲ့ အိပ်ချိန် နဲ့ အခြားကုန်တဲ့အချိန်တွေကိုထည့်ပြီး တကယ့်စာလုပ်ချိန်ဘယ်လောက်ကျန်လဲဆိုတာကို တွက်ချက်ပေးတာပဲဖြစ်ပါတယ်။
         </p>
       </div>
 

@@ -195,6 +195,21 @@ p.lead {
   animation: pop 0.8s ease-out forwards;
 }
 
+.me {
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.me-l {
+  display: none;
+}
+
+.me a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bolder;
+}
+
 /* --- Main Popup Container --- */
 .calculator-popup {
   position: absolute;
@@ -262,12 +277,23 @@ p.lead {
   color: white;
   font-size: 16px;
   font-weight: 600;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn-back {
-  background-color: #929292;
+  background-color: rgb(14, 14, 14);
+  padding: 5px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-back:hover {
+  filter: brightness(150%);
 }
 
 .calculate-btn:hover {
@@ -413,18 +439,23 @@ p.lead {
     display: none;
   }
 
+  .me-l {
+    display: block;
+  }
+
+  .me-r {
+    display: none;
+  }
+
   .wrap {
     border-radius: 20px;
     padding: 16px;
+    gap: 0;
   }
 
   p.lead {
     font-size: 15px;
     line-height: 1.7;
-  }
-
-  .anime-card {
-    max-width: 240px;
   }
 
   .details {
@@ -444,6 +475,10 @@ p.lead {
 
   .anime-card {
     max-width: 200px;
+  }
+
+  .me-l {
+    font-size: 0.7rem;
   }
 
   .wrap {
