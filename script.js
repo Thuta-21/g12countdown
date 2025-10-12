@@ -117,13 +117,14 @@ function showPopup() {
 function calculateStudyTimePerSubject() {
   details_note.classList.add('hide');
   result_container.classList.remove('hide');
-  // --- 1. Get User Inputs (assuming you have these input fields in your HTML) ---
+
+  // Get User Inputs
   const sleepHours = document.getElementById('sleepTime').value;
   const otherHours = document.getElementById('otherTime').value;
   const numSubjects = 6;
   const resultElement = document.getElementById('result');
 
-  // --- 2. Validate Inputs ---
+  // Validate Inputs
   if (sleepHours === '' || otherHours === '') {
     resultElement.textContent = 'Please fill in all fields.';
     return;
@@ -134,7 +135,7 @@ function calculateStudyTimePerSubject() {
     return;
   }
 
-  // --- 3. Calculate Total Time Remaining ---
+  // Calculate Total Time Remaining
   const now = new Date();
   const totalMillisecondsLeft = target.getTime() - now.getTime();
 
@@ -143,30 +144,29 @@ function calculateStudyTimePerSubject() {
     return;
   }
   
-  // Convert total milliseconds to total days (can be a decimal)
+  // Convert total milliseconds to total days
   const totalDaysLeft = totalMillisecondsLeft / (1000 * 60 * 60 * 24);
 
-  // --- 4. Calculate Available Study Time ---
+  // Calculate Available Study Time
   const dailyStudyHours = 24 - sleepHours - otherHours;
 
   if (dailyStudyHours <= 0) {
-    resultElement.textContent = 'သင့်မှာ စာလုပ်ချိန် လုံးဝမကျန်တော့ပါ။';
+    resultElement.textContent = 'သင့်မှာ စာလုပ်ချိန် လုံးဝမကျန်ရှိတော့ပါ။';
     return;
   }
 
   // Total available study hours until the target date
   const totalStudyHours = totalDaysLeft * dailyStudyHours;
   
-  // --- 5. Distribute Time Per Subject ---
+  // Distribute Time Per Subject 
   const hoursPerSubject = totalStudyHours / 6;
 
-  // --- 6. Format and Display the Result ---
+  // Format and Display the Result 
   const formattedTime = formatDuration(hoursPerSubject);
   const [days, hours, minutes] = formattedTime;
   resultElement.innerHTML = `သင့်မှာ တစ်ဘာသာအတွက်စာလုပ်ချိန် - <br> <strong>${days} ရက် ${hours} နာရီ ${minutes} မိနစ်</strong> သာကျန်ရှိပါတော့သည်။`;
 }
 
-// A helper function to convert a total number of hours into a
 function formatDuration(totalHours) {
   if (totalHours < 0) return "0 hours";
 
@@ -178,7 +178,7 @@ function formatDuration(totalHours) {
   return [days, hours, minutes];
 }
 
-// sakura petals creation
+// petals creation
 function createPetals(count = 10) {
   // create and append petals to wrap
   for (let i = 0; i < count; i++) {
@@ -204,7 +204,7 @@ function tick() {
   const now = new Date();
   const r = computeRemaining(now);
 
-  // numbers update once per second (avoid flicker)
+  // numbers update once per second
   if (lastSecond !== r.seconds || lastSecond === null || r.total === 0) {
     lastSecond = r.seconds;
     daysEl.textContent = r.days.toString();
@@ -260,7 +260,7 @@ document.body.appendChild(liveRegion);
 
 // When finish happens, set text for screen readers
 function announceFinish() {
-  liveRegion.textContent = "G12 Exam Time!";
+  liveRegion.textContent = "G12 Exam Time! Good luck.";
 }
 
 // attach finish announcer
