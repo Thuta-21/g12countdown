@@ -129,6 +129,11 @@ function calculateStudyTimePerSubject() {
     return;
   }
 
+  if ((sleepHours < 0 || otherHours < 0) || (sleepHours > 12 || otherHours > 12)) {
+    resultElement.textContent = 'You cannot fill wrong information.';
+    return;
+  }
+
   // --- 3. Calculate Total Time Remaining ---
   const now = new Date();
   const totalMillisecondsLeft = target.getTime() - now.getTime();
@@ -145,7 +150,7 @@ function calculateStudyTimePerSubject() {
   const dailyStudyHours = 24 - sleepHours - otherHours;
 
   if (dailyStudyHours <= 0) {
-    resultElement.textContent = 'You have no available study time per day!';
+    resultElement.textContent = 'သင့်မှာ စာလုပ်ချိန် လုံးဝမကျန်တော့ပါ။';
     return;
   }
 
