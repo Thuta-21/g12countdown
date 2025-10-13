@@ -18,25 +18,24 @@ const blurOverlay = document.getElementsByClassName('blurOverlay')[0];
 confettiCanvas.width = wrap.clientWidth;
 confettiCanvas.height = wrap.clientHeight;
 
-// Responsive canvas size on resize
 window.addEventListener("resize", () => {
   confettiCanvas.width = wrap.clientWidth;
   confettiCanvas.height = wrap.clientHeight;
 });
 
-// helper: pad numbers
+// pad numbers
 function pad(n) {
   return n.toString().padStart(2, "0");
 }
 
-// compute remaining time
+// remaining time
 function computeRemaining(now) {
   // difference in milliseconds
   const diff = target.getTime() - now.getTime();
   if (diff <= 0) {
     return { total: 0, days: 0, hours: 0, minutes: 0, seconds: 0, ms: 0 };
   }
-  // compute
+  
   let ms = diff;
   const sec = 1000;
   const minute = 60 * sec;
@@ -59,7 +58,7 @@ function computeRemaining(now) {
 let lastSecond = null;
 let ended = false;
 
-// confetti implementation (simple)
+// confetti implementation
 const ctx = confettiCanvas.getContext("2d");
 let confettiParticles = [];
 
