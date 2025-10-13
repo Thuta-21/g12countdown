@@ -200,7 +200,7 @@ p.lead {
 }
 
 .me a {
-  text-decoration: none;
+  text-decoration: underline;
   color: blue;
   font-weight: bolder;
 }
