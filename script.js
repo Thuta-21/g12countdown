@@ -1,4 +1,4 @@
-const target = new Date(2026, 2, 17, 0, 0, 0, 0); // monthIndex 2 => March
+const target = new Date(2026, 2, 11, 0, 0, 0, 0); // monthIndex 2 => March
 
 // Elements
 const daysEl = document.getElementById("days");
